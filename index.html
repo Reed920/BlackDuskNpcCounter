@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Dusk NPC Counter</title>
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <h2 id="heading">Black Dusk NPC Counter</h1>
+    
+    <div class="div">
+        <h3 id="baseSecurity" class="indicator">Base Security: 19</h3>
+        <button id="baseSecurityDecrease" class="decrease">Knock</button>
+    </div>
+
+    <div class="div">
+        <h3 id="eliteOperative" class="indicator">Elite Operative: 8</h3>
+        <button id="eliteOperativeDecrease" class="decrease">Knock</button>
+    </div>
+
+    <div class="div">
+        <h3 id="programmer" class="indicator">Programmer: 6</h3>
+        <button id="programmerDecrease" class="decrease">Knock</button>
+    </div>
+
+    <div class="div">
+        <h3 id="workshopTech" class="indicator">Workshop Tech: 6</h3>
+        <button id="workshopTechDecrease" class="decrease">Knock</button>
+    </div>
+
+    <div id="difficultySelector">
+        <button id="operativeSelector">Operative - Elite</button>
+        <button id="legendSelector">Legend</button>
+    </div>
+</body>
+</html>
+
+<script>
+    var operativeSelector = document.getElementById("operativeSelector");
+    var legendSelector = document.getElementById("legendSelector");
+    
+    var workshopTechCountAmount = 0;
+    
+    var baseSecurityIndicator = document.getElementById("baseSecurity");
+    var baseSecurityButtton = document.getElementById("baseSecurityDecrease");
+    var baseSecurityCount = 19;
+
+    var eliteOperativeIndicator = document.getElementById("eliteOperative");
+    var eliteOperativeButtton = document.getElementById("eliteOperativeDecrease");
+    var eliteOperativeCount = 8;
+    
+    var programmerIndicator = document.getElementById("programmer");
+    var programmerButtton = document.getElementById("programmerDecrease");
+    var programmerCount = 6;
+    
+    var workshopTechIndicator = document.getElementById("workshopTech");
+    var workshopTechButtton = document.getElementById("workshopTechDecrease");
+    var workshopTechCount = 6;
+
+    operativeSelector.style.color = "red";
+
+    function operative(){
+        operativeSelector.style.color = "red";
+        legendSelector.style.color = "black";
+        workshopTechCount = (6 - workshopTechCountAmount);
+        workshopTechIndicator.innerHTML = "Workshop Tech: " + workshopTechCount;
+        return
+    }
+
+    function legend(){
+        operativeSelector.style.color = "black";
+        legendSelector.style.color = "red";
+        workshopTechCount = (7 - workshopTechCountAmount);
+        workshopTechIndicator.innerHTML = "Workshop Tech: " + workshopTechCount;
+        return
+    }
+    
+    function decreaseBaseSecurity(){
+        if(baseSecurityCount == 0) return;
+        baseSecurityCount --;
+        baseSecurityIndicator.innerHTML = "Base Security: " + baseSecurityCount;
+    }
+
+    function decreaseEliteOperative(){
+        if(eliteOperativeCount == 0) return;
+        eliteOperativeCount --;
+        eliteOperativeIndicator.innerHTML = "Elite Operative: " + eliteOperativeCount;
+    }
+
+    function decreaseProgrammer(){
+        if(programmerCount == 0) return;
+        programmerCount --;
+        programmerIndicator.innerHTML = "Programmer: " + programmerCount;
+    }
+
+    function decreaseWorkshopTech(){
+        if(workshopTechCount == 0) return;
+        workshopTechCount --;
+        workshopTechCountAmount ++;
+        workshopTechIndicator.innerHTML = "Workshop Tech: " + workshopTechCount;
+    }
+    
+    baseSecurityButtton.onclick = function(){ decreaseBaseSecurity(); }
+    eliteOperativeButtton.onclick = function(){ decreaseEliteOperative(); }
+    programmerButtton.onclick = function(){ decreaseProgrammer(); }
+    workshopTechButtton.onclick = function(){ decreaseWorkshopTech(); }
+
+    operativeSelector.onclick = function(){ operative(); }
+    legendSelector.onclick = function(){ legend(); }
+</script>
+
+<style>
+    .div{
+        background-color: gray;
+        padding: 5px;
+        margin: 5px;
+        display: flex;
+    }
+
+    #heading{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    
+    .indicator{
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+        margin-right: 10px;
+    }
+
+    .decrease{
+        padding: 10px;
+        background-color: red;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        border-radius: 100%;
+    }
+</style>

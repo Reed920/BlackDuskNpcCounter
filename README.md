@@ -1,2 +1,2 @@
-# BlackDuskNpcCounter
-A simple system to count how many NPC (Non-playable Characters) are left in the Roblox Entry Point Mission: Black Dusk. This was made to be used for the 2021 Anniversary Challenges Day 4: "UNSTOPPABLE TO THE END".
+# Black Dusk NPC Counter
+A simple system to count how many NPC (Non-playable Characters) are left in the Roblox Entry Point Mission: Black Dusk. This was made to be used for the 2021 Anniversary Challenges Day 4: "UNSTOPPABLE TO THE END". This was made with 140 lines of HTML, CSS and JavaScript code. You can change the difficulty of the mission at the bottom of the webpage which changes the amount of NPCs that are in the mission. If you realize in the middle of the mission that you forgot to change the difficulty, no worries! The web app will save the number of NPCs you have already nocked out and add the additional NPCs for the difficulty.
